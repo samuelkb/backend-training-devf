@@ -1,4 +1,8 @@
-const hello = (_, args) => `Hello ${args.name}!!` || 'World!!';
+const actions = require('../actions');
+
+const hello = (_, args) => {
+    return actions.hello();
+}
 
 module.exports = {
     hello,

@@ -13,6 +13,7 @@ const schema = makeExecutableSchema({
 
 const server = new GraphQLServer({
 	schema,
+  context: req => ({...req})
 });
 
 const options = {

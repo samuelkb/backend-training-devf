@@ -1,18 +1,28 @@
 const actions = require('../actions');
+const { authUserById } = require('../utils');
 
-const signup = (_, {email, password}) => {
-    return actions.signup(email, password)
-                .then(respuesta => respuesta)
-                .catch(error => error);
-}
+const signup = (_, { data }) => {
+    return actions.signup(data)
+                  .then( res => res)
+                  .catch( err => err );
+};
 
-const createUser = (_, args) => {
-    return actions.createUser(args.data)
+const login = (_, {email, password}) => {
+    return actions.login(email, password)
+                  .then(res => res)
+                  .catch(err => err);
+};
+
+const createUser = async (_, { data }, context) => {
+    const user = await authUserById(context);
+    if (!user) throw new Error("No estás autenticado");
+    return actions.createUser(data)
                 .then(newUser => newUser)
                 .catch(err => err);
-}
+};
 
 module.exports = {
     signup,
+    login,
     createUser,
 }

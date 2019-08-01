@@ -1,9 +1,12 @@
+scalar Upload
+
 type Query {
     hello(name: String): String!
   }
 
   type Mutation {
-      signup(email: String!, password: String!): Auth!
+      signup(data: UserCreateInput!): Auth!
+      login(email: String!, password: String!): Auth!
       createUser(data: UserCreateInput!): User
   }
 
@@ -19,6 +22,7 @@ type Query {
       gender: String
       email: String!
       password: String!
+      profile_img: Upload
   }
 
   type User {

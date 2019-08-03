@@ -20,7 +20,6 @@ type Query {
       gender: String
       email: String!
       password: String!
-      profile_img: Upload
   }
 
   type User {

@@ -2,9 +2,6 @@ const actions = require('../actions');
 const { authUserById } = require('../utils');
 
 const signup = (_, { data }) => {
-    if(data.profile_img){
-        {createReadStream} = await data.profile_img;
-    }
     return actions.signup(data)
                   .then( res => res)
                   .catch( err => err );

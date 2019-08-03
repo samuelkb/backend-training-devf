@@ -22,6 +22,13 @@ const authUserById = (context) => {
     throw new Error("No estás autenticado");
 }
 
+const storeUpload = (stream) => {
+    cloudinary.config({
+        cloud_name: 'djirxgoh8',
+        api_key: '',
+        api_secret: '',
+    })
+}
 
 module.exports = {
     createToken,
